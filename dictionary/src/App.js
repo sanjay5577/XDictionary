@@ -19,8 +19,9 @@ function App() {
   const[dictvalue ,setDictValue] =useState('');
 
   const handleinput =(e)=>{
+    const text = e.target.value;
 
-    setInput(e.target.value)
+    setInput(text);
   }
 
   const handlesearch=()=>{
