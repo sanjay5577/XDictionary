@@ -1,4 +1,4 @@
-import useState from "react"
+import {useState} from "react"
 import './App.css';
 
 const dictionary = 
@@ -17,6 +17,7 @@ function App() {
 
   const[input , setInput]= useState('');
   const[dictvalue ,setDictValue] =useState('');
+  const [searchcliked , setsearchClicked]=useState(false);
 
   const handleinput =(e)=>{
     const text = e.target.value;
@@ -25,12 +26,18 @@ function App() {
   }
 
   const handlesearch=()=>{
+    setDictValue('');
     const value =dictionary.find((arr)=>{
       return arr.word.toLowerCase()===input.toLowerCase();
 
     })
-
-    setDictValue(value.meaning);
+    
+    if(value){
+      setDictValue(value.meaning);
+  
+    }
+    setsearchClicked(true)
+    
   }
 
 
@@ -48,7 +55,7 @@ function App() {
         <button onClick= {handlesearch}>Search</button>
       </div>
       <h4>Definition:</h4>
-      {dictvalue ? <p>{dictvalue}</p>: <p>Word not found in the dictionary</p>}
+      {searchcliked ?(dictvalue? <p>{dictvalue}</p>:<p>Word not found in the dictionary</p> ):null}
     </div>
 
   );
