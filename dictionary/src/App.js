@@ -55,7 +55,7 @@ function App() {
         <button onClick= {handlesearch}>Search</button>
       </div>
       <h4>Definition:</h4>
-      {searchcliked ?(dictvalue? <p>{dictvalue}</p>:<p>Word not found in the dictionary</p> ):null}
+      {searchcliked ?(dictvalue? <p>{dictvalue}</p>:<p>Word not found in the dictionary.</p> ):null}
     </div>
 
   );
